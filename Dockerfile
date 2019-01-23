@@ -16,8 +16,9 @@ FROM mongo:4.1.6
 
 RUN apt-get update && apt-get install -y -qq \
     bzip2 \
-    wget \
+    curl \
     cron \
-    gettext
+    gettext \
+    wget
 
 COPY --from=builder /tmp/restic /usr/bin/restic
