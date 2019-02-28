@@ -21,6 +21,10 @@ RUN set -eux; \
 		apt-get install -y --no-install-recommends procps; \
 	fi; \
 	rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/restic/restic/releases/download/v0.9.3/restic_0.9.3_linux_amd64.bz2 \
+    && bzip2 -d restic_0.9.3_linux_amd64.bz2 \
+    && chmod +x restic_0.9.3_linux_amd64 \
+    && mv restic_0.9.3_linux_amd64 restic
 
 # grab gosu for easy step-down from root (https://github.com/tianon/gosu/releases)
 ENV GOSU_VERSION 1.10
@@ -96,9 +100,3 @@ RUN mkdir -p /data/db /data/configdb \
 	&& chown -R mongodb:mongodb /data/db /data/configdb
 
 
-WORKDIR /tmp
-
-RUN wget https://github.com/restic/restic/releases/download/v0.9.3/restic_0.9.3_linux_amd64.bz2 \
-    && bzip2 -d restic_0.9.3_linux_amd64.bz2 \
-    && chmod +x restic_0.9.3_linux_amd64 \
-    && mv restic_0.9.3_linux_amd64 restic
