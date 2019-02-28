@@ -14,6 +14,8 @@ RUN set -eux; \
                 gettext \
                 nano \
 		numactl \
+                curl \
+                wget \
 	; \
 	if ! command -v ps > /dev/null; then \
 		apt-get install -y --no-install-recommends procps; \
