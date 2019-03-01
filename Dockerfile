@@ -34,9 +34,6 @@ ENV JSYAML_VERSION 3.10.0
 RUN set -ex; \
 	\
 	apt-get update; \
-	apt-get install -y --no-install-recommends \
-		wget \
-	; \
 	if ! command -v gpg > /dev/null; then \
 		apt-get install -y --no-install-recommends gnupg dirmngr; \
 	fi; \
