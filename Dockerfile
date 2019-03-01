@@ -25,6 +25,7 @@ RUN wget https://github.com/restic/restic/releases/download/v0.9.3/restic_0.9.3_
     && bzip2 -d restic_0.9.3_linux_amd64.bz2 \
     && chmod +x restic_0.9.3_linux_amd64 \
     && mv restic_0.9.3_linux_amd64 restic
+    && mv ./restic /bin/restic
 
 # grab gosu for easy step-down from root (https://github.com/tianon/gosu/releases)
 ENV GOSU_VERSION 1.10
